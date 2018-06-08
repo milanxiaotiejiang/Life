@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ProgressWheel">
+        <attr name="matProg_progressIndeterminate" format="boolean" />
+        <attr name="matProg_barColor" format="color" />
+        <attr name="matProg_rimColor" format="color" />
+        <attr name="matProg_rimWidth" format="dimension" />
+        <attr name="matProg_spinSpeed" format="float" />
+        <attr name="matProg_barSpinCycleTime" format="integer" />
+        <attr name="matProg_circleRadius" format="dimension" />
+        <attr name="matProg_fillRadius" format="boolean" />
+        <attr name="matProg_barWidth" format="dimension" />
+        <attr name="matProg_linearProgress" format="boolean" />
+    </declare-styleable>
+    <!-- From: file:/Users/nicolas/Development/Projects/materialish-progress/library/src/main/res/values/strings.xml -->
+
+    <declare-styleable name="SmileyLoadingView">
+        <!-- animation duration -->
+        <attr name="duration" format="integer" />
+        <!-- stroke width -->
+        <attr name="strokeWidth" format="dimension" />
+        <!-- stroke color -->
+        <attr name="strokeColor" format="color" />
+        <!-- animation repeat count -->
+        <attr name="animRepeatCount" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="play">
+        <attr name="play_line_color" format="color" />
+        <attr name="play_bg_line_color" format="color" />
+        <attr name="play_line_width" format="integer" />
+        <attr name="play_bg_line_width" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="download">
+        <attr name="download_line_color" format="color" />
+        <attr name="download_bg_line_color" format="color" />
+        <attr name="download_text_color" format="color" />
+        <attr name="download_line_width" format="integer" />
+        <attr name="download_bg_line_width" format="integer" />
+        <attr name="download_text_size" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="LrcView">
+        <attr name="lrcTextSize" format="dimension" />
+        <attr name="lrcDividerHeight" format="dimension" />
+        <attr name="lrcNormalTextColor" format="reference|color" />
+        <attr name="lrcCurrentTextColor" format="reference|color" />
+        <attr name="lrcTimelineTextColor" format="reference|color" />
+        <attr name="lrcAnimationDuration" format="integer" />
+        <attr name="lrcLabel" format="string" />
+        <attr name="lrcPadding" format="dimension" />
+        <attr name="lrcTimelineColor" format="reference|color" />
+        <attr name="lrcTimelineHeight" format="dimension" />
+        <attr name="lrcPlayDrawable" format="reference" />
+        <attr name="lrcTimeTextColor" format="reference|color" />
+        <attr name="lrcTimeTextSize" format="dimension" />
+    </declare-styleable>
+
+</resources>

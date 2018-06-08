@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="color_movie">#6c4a41</color>
+    <color name="color_music">#008867</color>
+    <color name="color_essay">#8b6b64</color>
+    <color name="color_veer">#485A66</color>
+    <color name="color_panorama">#3F51B5</color>
+
+    <color name="inactive">#CCCCCC</color>
+
+    <color name="while_most_color">#e4e4e4</color>
+
+
+    <color name="style_color">#005fff</color><!--主题色-->
+
+    <color name="lrc_normal_text_color">#9E9E9E</color>
+    <color name="lrc_current_text_color">#FF4081</color>
+    <color name="lrc_timeline_text_color">#F8BBD0</color>
+    <color name="lrc_timeline_color">#809E9E9E</color>
+    <color name="lrc_time_text_color">#809E9E9E</color>
+
+    <color name="transparent">#00000000</color>
+
+</resources>

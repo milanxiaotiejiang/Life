@@ -1,0 +1,119 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
+
+    defaultConfig {
+        applicationId rootProject.ext.android.applicationId
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+
+    implementation rootProject.ext.dependencies["appcompat-v7"]
+    implementation rootProject.ext.dependencies["constraint-layout"]
+    implementation rootProject.ext.dependencies["cardview"]
+    implementation rootProject.ext.dependencies["recyclerview"]
+    implementation rootProject.ext.dependencies["design"]
+    implementation rootProject.ext.dependencies["palette"]
+    implementation rootProject.ext.dependencies["customtabs"]
+    implementation rootProject.ext.dependencies["support-v4"]
+
+    //ui
+    implementation rootProject.ext.dependencies["bottom-navigation-bar"]
+    implementation rootProject.ext.dependencies["floatingsearchview"]
+    implementation rootProject.ext.dependencies["fab"]
+    implementation(rootProject.ext.dependencies["vlayout"]) {
+        transitive = true
+    }
+    implementation rootProject.ext.dependencies["expandableTextView"]
+//    implementation rootProject.ext.dependencies["xrecyclerview"]
+    implementation rootProject.ext.dependencies["statusbarutil"]
+
+    //network
+    implementation rootProject.ext.dependencies["gson"]
+    implementation rootProject.ext.dependencies["retrofit2"]
+    implementation rootProject.ext.dependencies["converter-gson"]
+    implementation rootProject.ext.dependencies["adapter-rxjava2"]
+    implementation rootProject.ext.dependencies["okhttp"]
+    implementation rootProject.ext.dependencies["logging-interceptor"]
+    implementation rootProject.ext.dependencies["glide"]
+    annotationProcessor rootProject.ext.dependencies["glide-compiler"]
+
+    //dagger2
+    implementation rootProject.ext.dependencies["dagger"]
+    annotationProcessor rootProject.ext.dependencies["dagger-compiler"]
+
+    //butterknife
+    implementation rootProject.ext.dependencies["butterknife"]
+    annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
+
+    //rx      
+    implementation rootProject.ext.dependencies["rxjava"]
+    implementation rootProject.ext.dependencies["rxandroid"]
+    implementation rootProject.ext.dependencies["rxbinding"]
+    implementation rootProject.ext.dependencies["rxlifecycle"]
+    implementation rootProject.ext.dependencies["rxlifecycle-android"]
+    implementation rootProject.ext.dependencies["rxlife-components"]
+
+    //eventbus
+    implementation rootProject.ext.dependencies["eventbus"]
+
+    //log
+    implementation rootProject.ext.dependencies["log"]
+
+    //autolayout
+    implementation rootProject.ext.dependencies["autolayout"]
+    implementation rootProject.ext.dependencies["multidex"]
+
+    //fragment manager
+    implementation rootProject.ext.dependencies["fragmentation"]
+
+    //canary
+    debugImplementation rootProject.ext.dependencies["leakcanary"]
+
+    //blockcanary
+    implementation rootProject.ext.dependencies["blockcanary"]
+
+    //video
+    implementation rootProject.ext.dependencies["DanmakuFlameMaster"]
+    implementation rootProject.ext.dependencies["ndkbitmap_armv7a"]
+    implementation rootProject.ext.dependencies["ndkbitmap_armv5"]
+    implementation rootProject.ext.dependencies["ndkbitmap_x86"]
+
+    //umeng
+//    compile 'com.umeng.analytics:analytics:6.1.4'
+//    provided 'org.glassfish:javax.annotation:10.0-b28'
+    implementation rootProject.ext.dependencies["BaseAdapterHelper"]
+    implementation rootProject.ext.dependencies["panowidget"]
+    implementation rootProject.ext.dependencies["flowlayout"]
+    implementation rootProject.ext.dependencies["rollviewpager"]
+
+    implementation rootProject.ext.dependencies["ijkplayer-java"]
+    implementation rootProject.ext.dependencies["ijkplayer-armv7a"]
+    implementation rootProject.ext.dependencies["ijkplayer-arm64"]
+    implementation rootProject.ext.dependencies["ijkplayer-exo"]
+
+    implementation rootProject.ext.dependencies["transitionseverywhere"]
+
+    implementation rootProject.ext.dependencies["videocache"]
+
+    implementation rootProject.ext.dependencies["MD360Player"]
+}

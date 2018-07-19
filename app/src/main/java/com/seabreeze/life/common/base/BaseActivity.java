@@ -46,7 +46,6 @@ public abstract class BaseActivity<T extends BasePresenter> extends RxSupportAct
         initInject();
         if (mPresenter != null)
             mPresenter.attachView(this);
-        App.getInstance().addActivity(this);
         initEventAndData();
     }
 
@@ -92,7 +91,6 @@ public abstract class BaseActivity<T extends BasePresenter> extends RxSupportAct
         if (mPresenter != null)
             mPresenter.detachView();
         mUnBinder.unbind();
-        App.getInstance().removeActivity(this);
     }
 
     @Override

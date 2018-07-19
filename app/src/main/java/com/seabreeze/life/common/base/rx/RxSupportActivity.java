@@ -6,6 +6,8 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.MotionEvent;
 
+import com.seabreeze.life.R;
+import com.seabreeze.life.common.base.ActivityCollector;
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 
 import me.yokeyword.fragmentation.ExtraTransaction;
@@ -36,6 +38,7 @@ public class RxSupportActivity extends RxAppCompatActivity implements ISupportAc
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        ActivityCollector.addActivity(this);
         super.onCreate(savedInstanceState);
         mDelegate.onCreate(savedInstanceState);
     }
@@ -50,6 +53,7 @@ public class RxSupportActivity extends RxAppCompatActivity implements ISupportAc
     protected void onDestroy() {
         mDelegate.onDestroy();
         super.onDestroy();
+        ActivityCollector.finishActivity(this);
     }
 
     /**
@@ -260,5 +264,11 @@ public class RxSupportActivity extends RxAppCompatActivity implements ISupportAc
      */
     public <T extends ISupportFragment> T findFragment(Class<T> fragmentClass) {
         return SupportHelper.findFragment(getSupportFragmentManager(), fragmentClass);
+    }
+
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
     }
 }

@@ -18,6 +18,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    dataBinding {
+        enabled = true
+    }
 }
 
 dependencies {
@@ -88,6 +91,7 @@ dependencies {
 
     //canary
     debugImplementation rootProject.ext.dependencies["leakcanary"]
+    releaseImplementation rootProject.ext.dependencies["leakcanary-no-op"]
 
     //blockcanary
     implementation rootProject.ext.dependencies["blockcanary"]

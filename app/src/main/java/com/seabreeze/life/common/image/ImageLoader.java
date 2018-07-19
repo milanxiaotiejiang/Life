@@ -71,6 +71,22 @@ public class ImageLoader {
     }
 
     /**
+     * @param context   上下文
+     * @param imageView 图片展示控件
+     * @param model     加载资源
+     * @param skip      是否跳过内存，true跳过
+     * @param duration  动画时间
+     */
+    public static void loadImage(Context context, ImageView imageView, @Nullable Object model,
+                                 boolean skip, int duration) {
+        Glide.with(context)
+                .load(model)
+                .apply(new RequestOptions().skipMemoryCache(skip).diskCacheStrategy(DiskCacheStrategy.NONE))
+                .transition(new DrawableTransitionOptions().crossFade(duration))
+                .into(imageView);
+    }
+
+    /**
      * 加载优先级最高，跳过内存，不使用磁盘缓存，圆角变换，默认加载动画
      */
     public void loadImage(Context context, ImageView imageView, String url) {

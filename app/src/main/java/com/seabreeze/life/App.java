@@ -21,9 +21,12 @@ import com.seabreeze.life.di.component.AppComponent;
 import com.seabreeze.life.di.component.DaggerAppComponent;
 import com.seabreeze.life.di.module.AppModule;
 import com.seabreeze.life.di.module.RetrofitModule;
+import com.seabreeze.life.utils.FileUtils;
+import com.seabreeze.life.utils.crash.RCrashHandler;
 import com.squareup.leakcanary.LeakCanary;
 import com.zhy.autolayout.config.AutoLayoutConifg;
 
+import java.io.File;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -31,7 +34,6 @@ public class App extends Application {
 
     private AppComponent appComponent;
     private static App app;
-    private Set<Activity> allActivities;
 
     public static int SCREEN_WIDTH = -1;
     public static int SCREEN_HEIGHT = -1;
@@ -70,7 +72,8 @@ public class App extends Application {
 
         BlockCanary.install(this, new BlockCanaryContext()).start();
 
-//        CrashHandler.getInstance().initCrashHandler(this);
+        String crashPath = FileUtils.getCacheDir(this) + File.separator + "crash";
+        RCrashHandler.getInstance(crashPath).init(this, null);
     }
 
     private void initAppComponent() {
@@ -82,7 +85,8 @@ public class App extends Application {
     private void initLogger(@NonNull Context context) {
         if (BuildConfig.DEBUG) {
             Log.getLogConfig().configAllowLog(true).configShowBorders(false);
-//            Log.plant(new FileTree(context, Constants.PRINT_LOG_PATH));
+            String printLogPath = FileUtils.getCacheDir(this) + File.separator + "log";
+            Log.plant(new FileTree(context, printLogPath));
             Log.plant(new ConsoleTree());
             Log.plant(new LogcatTree());
         }
@@ -92,30 +96,6 @@ public class App extends Application {
         return appComponent;
     }
 
-    public void addActivity(Activity activity) {
-        if (allActivities == null) {
-            allActivities = new HashSet<>();
-        }
-        allActivities.add(activity);
-    }
-
-    public void removeActivity(Activity activity) {
-        if (allActivities != null) {
-            allActivities.remove(activity);
-        }
-    }
-
-    public void exitApp() {
-        if (allActivities != null) {
-            synchronized (allActivities) {
-                for (Activity activity : allActivities) {
-                    activity.finish();
-                }
-                android.os.Process.killProcess(android.os.Process.myPid());
-                System.exit(0);
-            }
-        }
-    }
 
     public void getScreenSize() {
         WindowManager windowManager = (WindowManager) this.getSystemService(Context.WINDOW_SERVICE);
@@ -136,5 +116,7 @@ public class App extends Application {
         Log.d("SCREEN_WIDTH:" + SCREEN_WIDTH);
         Log.d("SCREEN_HEIGHT:" + SCREEN_HEIGHT);
     }
+
+
 }
 
